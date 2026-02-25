@@ -56,7 +56,7 @@ def random_blur(img):
 
 
 def random_noise(img):
-    arr = np.array(img)
+    arr = np.asarray(img)
     noise = np.random.randint(0, 50, arr.shape, dtype='uint8')
     arr = np.clip(arr + noise, 0, 255)
     return Image.fromarray(arr)
@@ -65,7 +65,7 @@ def random_noise(img):
     
 def pixel_shift_glitch(img, max_shift=20):
     """Verschiebt zufällige horizontale Pixelblöcke"""
-    arr = np.array(img)
+    arr = np.asarray(img)
     h, w, c = arr.shape
     for _ in range(random.randint(3, 10)):
         y = random.randint(0, h-1)
@@ -74,7 +74,7 @@ def pixel_shift_glitch(img, max_shift=20):
     return Image.fromarray(arr)
 
 def color_channel_split(img, intensity=1.0):
-    arr = np.array(img)
+    arr = np.asarray(img)
     h, w, c = arr.shape
     new_arr = np.zeros_like(arr)
 
@@ -89,14 +89,14 @@ def color_channel_split(img, intensity=1.0):
 
 def scanline_noise(img, intensity=30):
     """Fügt horizontale Scanlines / Noise hinzu"""
-    arr = np.array(img)
+    arr = np.asarray(img)
     h, w, c = arr.shape
     for y in range(0, h, 2):
         arr[y] = np.clip(arr[y] + np.random.randint(-intensity, intensity, (w, c)), 0, 255)
     return Image.fromarray(arr)
     
 def pixel_block_glitch(img, intensity=1.0):
-    arr = np.array(img)
+    arr = np.asarray(img)
     h, w, c = arr.shape
 
     blocks = int(10 * intensity)
@@ -111,7 +111,7 @@ def pixel_block_glitch(img, intensity=1.0):
     return Image.fromarray(arr)
 
 def scanline_glitch(img, intensity=1.0):
-    arr = np.array(img)
+    arr = np.asarray(img)
     h, w, c = arr.shape
 
     for y in range(0, h, random.randint(1,3)):
