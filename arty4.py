@@ -4,6 +4,7 @@ import os
 from datetime import datetime
 from PIL import Image, ImageEnhance, ImageFilter, ImageOps, ExifTags
 
+
 def open_image_fixed(path):
     img = Image.open(path)
 
