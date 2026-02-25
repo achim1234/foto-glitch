@@ -129,7 +129,7 @@ def process_image(path):
 
     img = open_image_fixed(path).convert("RGB")
     
-    glitch_intensity = 4.8  # <- hier kannst du eskalieren 😈
+    glitch_intensity = 4.8  # <- hier kannst du eskalieren 😈, adjust glitch intensity
 
     effects = [
         random_color_shift,
