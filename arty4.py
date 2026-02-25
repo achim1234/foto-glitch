@@ -157,4 +157,3 @@ def process_image(path):
 
 if __name__ == "__main__":
     process_image("input/input.jpg")
-
