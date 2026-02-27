@@ -3,7 +3,7 @@ import numpy as np
 import os
 from datetime import datetime
 from PIL import Image, ImageEnhance, ImageFilter, ImageOps, ExifTags
-
+from plugin.arty_plugin_2000internet import apply_2000s_pack
 
 def open_image_fixed(path):
     img = Image.open(path)
@@ -129,7 +129,8 @@ def process_image(path):
 
     img = open_image_fixed(path).convert("RGB")
     
-    glitch_intensity = 4.8  # <- hier kannst du eskalieren 😈, adjust glitch intensity
+    glitch_intensity = 6.8  # <- hier kannst du eskalieren 😈, adjust glitch intensity
+    internet_intensity = 6.8
 
     effects = [
         random_color_shift,
@@ -139,7 +140,11 @@ def process_image(path):
         random_noise,
         lambda img: pixel_block_glitch(img, glitch_intensity),
         lambda img: color_channel_split(img, glitch_intensity),
-        lambda img: scanline_glitch(img, glitch_intensity)
+        lambda img: scanline_glitch(img, glitch_intensity),
+
+
+        # 🔥 2000s Plugin integriert
+        lambda img: apply_2000s_pack(img, internet_intensity)
     ]
 
     random.shuffle(effects)
