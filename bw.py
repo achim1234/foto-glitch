@@ -24,10 +24,10 @@ def convert_to_black_white(input_path, output_path, contrast=1.2, threshold=None
 
 if __name__ == "__main__":
 
-    # python bw.py input.jpg output.jpg --contrast 1.5 --threshold 140
-    # python bw.py input.jpg output.jpg --threshold 130
-    # python bw.py input.jpg output.jpg --contrast 1.8
-    # python bw.py input.jpg output.jpg
+    # python3 bw.py input.jpg output.jpg --contrast 1.5 --threshold 140
+    # python3 bw.py input.jpg output.jpg --threshold 130
+    # python3 bw.py input.jpg output.jpg --contrast 1.8
+    # python3 bw.py input.jpg output.jpg
 
     parser = argparse.ArgumentParser(description="Convert image to black & white")
 
