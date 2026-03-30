@@ -1,3 +1,5 @@
+from datetime import datetime
+import os
 from PIL import Image, ImageOps
 import argparse
 
@@ -24,9 +26,17 @@ def adjust_rgb(input_path, output_path, r=1.0, g=1.0, b=1.0):
     # Wieder zusammenfügen
     img = Image.merge("RGB", (red, green, blue))
 
+    # --- Timestamp in output_path einbauen ---
+    directory, filename = os.path.split(output_path)
+    name, ext = os.path.splitext(filename)
+
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    new_filename = f"{name}_{timestamp}{ext}"
+    new_output_path = os.path.join(directory, new_filename)
+
     # Speichern
-    img.save(output_path)
-    print(f"Saved: {output_path}")
+    img.save(new_output_path)
+    print(f"Saved: {new_output_path}")
 
 
 if __name__ == "__main__":
