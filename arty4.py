@@ -125,12 +125,14 @@ def scanline_glitch(img, intensity=1.0):
     return Image.fromarray(arr)
 
 def process_image(path):
+
+    # python3 arty4.py
     os.makedirs("output", exist_ok=True)
 
     img = open_image_fixed(path).convert("RGB")
     
-    glitch_intensity = 6.8  # <- hier kannst du eskalieren 😈, adjust glitch intensity
-    internet_intensity = 6.8
+    glitch_intensity = 3.8  # <- hier kannst du eskalieren 😈, adjust glitch intensity
+    internet_intensity = 1.8
 
     effects = [
         random_color_shift,
@@ -144,7 +146,7 @@ def process_image(path):
 
 
         # 🔥 2000s Plugin integriert
-        lambda img: apply_2000s_pack(img, internet_intensity)
+        #lambda img: apply_2000s_pack(img, internet_intensity)
     ]
 
     random.shuffle(effects)
