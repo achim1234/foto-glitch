@@ -4,7 +4,6 @@ import argparse
 import os
 from datetime import datetime
 
-
 def generate_output_path(input_path, output_path=None):
     if output_path:
         return output_path
@@ -24,7 +23,6 @@ def generate_output_path(input_path, output_path=None):
 
 
 def color_glitch(input_path, output_path=None, strength=0.7):
-    # Output bestimmen
     output_path = generate_output_path(input_path, output_path)
 
     # Bild laden + EXIF fix
@@ -37,21 +35,32 @@ def color_glitch(input_path, output_path=None, strength=0.7):
 
     for x in range(width):
         for y in range(height):
-            r, g, b = pixels[x, y]
+            r_orig, g_orig, b_orig = pixels[x, y]
 
-            # 🔥 aggressive Farbpalette (rot/gelb/grün)
-            rand_r = random.randint(150, 255)
-            rand_g = random.randint(120, 255)
-            rand_b = random.randint(0, 80)
+            # Zufällig dominanter Kanal
+            dominant = random.choice(['r','g','b'])
+
+            if dominant == 'r':
+                r_rand = random.randint(150, 255)
+                g_rand = random.randint(0, 100)
+                b_rand = random.randint(0, 100)
+            elif dominant == 'g':
+                r_rand = random.randint(0, 100)
+                g_rand = random.randint(150, 255)
+                b_rand = random.randint(0, 100)
+            else:  # blue dominant
+                r_rand = random.randint(0, 100)
+                g_rand = random.randint(0, 100)
+                b_rand = random.randint(150, 255)
 
             # Mix Original + Random
-            new_r = int(r * (1 - strength) + rand_r * strength)
-            new_g = int(g * (1 - strength) + rand_g * strength)
-            new_b = int(b * (1 - strength) + rand_b * strength)
+            new_r = int(r_orig * (1 - strength) + r_rand * strength)
+            new_g = int(g_orig * (1 - strength) + g_rand * strength)
+            new_b = int(b_orig * (1 - strength) + b_rand * strength)
 
             pixels[x, y] = (new_r, new_g, new_b)
 
-    # 🔥 Extra Punch (sehr wichtig)
+    # Extra Punch
     img = ImageEnhance.Contrast(img).enhance(2.0)
     img = ImageEnhance.Color(img).enhance(1.8)
 
@@ -60,7 +69,7 @@ def color_glitch(input_path, output_path=None, strength=0.7):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Extreme color glitch (red/yellow/green focus)")
+    parser = argparse.ArgumentParser(description="Extreme color glitch (RGB dominant)")
 
     parser.add_argument("input", help="Input image")
     parser.add_argument("--output", help="Optional output path")
