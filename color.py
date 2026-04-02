@@ -41,9 +41,36 @@ def adjust_rgb(input_path, output_path, r=1.0, g=1.0, b=1.0):
 
 if __name__ == "__main__":
 
-    # python3 rgb.py input.jpg output.jpg --r 1.3 --b 0.8
-    # python3 rgb.py input.jpg output.jpg --b 1.4 --r 0.9
-    # python3 rgb.py input.jpg output.jpg --g 0.85
+    #python3 color.py input/6.jpg output/output1.jpg --r 1.3 --g 1.2 --b 0.8 && \
+    #python3 color.py input/6.jpg output/output2.jpg --r 0.8 --g 1.5 --b 1.2 && \
+    #python3 color.py input/6.jpg output/output3.jpg --r 1.6 --g 0.9 --b 0.7 && \
+    #python3 color.py input/6.jpg output/output4.jpg --r 0.7 --g 1.1 --b 1.6 && \
+    #python3 color.py input/6.jpg output/output5.jpg --r 1.8 --g 1.0 --b 0.6 && \
+    #python3 color.py input/6.jpg output/output6.jpg --r 0.6 --g 1.7 --b 1.1 && \
+    #python3 color.py input/6.jpg output/output7.jpg --r 1.4 --g 0.7 --b 1.5 && \
+    #python3 color.py input/6.jpg output/output8.jpg --r 0.9 --g 1.8 --b 0.5 && \
+    #python3 color.py input/6.jpg output/output9.jpg --r 1.7 --g 0.8 --b 1.2 && \
+    #python3 color.py input/6.jpg output/output10.jpg --r 0.5 --g 1.3 --b 1.9 && \
+    #python3 color.py input/6.jpg output/output11.jpg --r 1.2 --g 1.6 --b 0.7 && \
+    #python3 color.py input/6.jpg output/output12.jpg --r 0.7 --g 0.9 --b 1.8 && \
+    #python3 color.py input/6.jpg output/output13.jpg --r 1.9 --g 0.6 --b 1.0 && \
+    #python3 color.py input/6.jpg output/output14.jpg --r 0.8 --g 1.4 --b 1.7 && \
+    #python3 color.py input/6.jpg output/output15.jpg --r 1.5 --g 0.5 --b 1.4 && \
+    #python3 color.py input/6.jpg output/output16.jpg --r 0.6 --g 1.9 --b 0.9 && \
+    #python3 color.py input/6.jpg output/output17.jpg --r 1.3 --g 0.8 --b 1.7 && \
+    #python3 color.py input/6.jpg output/output18.jpg --r 0.9 --g 1.6 --b 1.3 && \
+    #python3 color.py input/6.jpg output/output19.jpg --r 1.8 --g 0.7 --b 0.9 && \
+    #python3 color.py input/6.jpg output/output20.jpg --r 0.5 --g 1.2 --b 1.8 && \
+    #python3 color.py input/6.jpg output/output21.jpg --r 1.6 --g 1.1 --b 0.5 && \
+    #python3 color.py input/6.jpg output/output22.jpg --r 0.7 --g 1.8 --b 1.0 && \
+    #python3 color.py input/6.jpg output/output23.jpg --r 1.4 --g 0.6 --b 1.9 && \
+    #python3 color.py input/6.jpg output/output24.jpg --r 0.8 --g 1.7 --b 1.4 && \
+    #python3 color.py input/6.jpg output/output25.jpg --r 1.9 --g 0.9 --b 0.6 && \
+    #python3 color.py input/6.jpg output/output26.jpg --r 0.6 --g 1.5 --b 1.8 && \
+    #python3 color.py input/6.jpg output/output27.jpg --r 1.7 --g 0.5 --b 1.3 && \
+    #python3 color.py input/6.jpg output/output28.jpg --r 0.9 --g 1.9 --b 0.7 && \
+    #python3 color.py input/6.jpg output/output29.jpg --r 1.2 --g 0.7 --b 1.9 && \
+    #python3 color.py input/6.jpg output/output30.jpg --r 1.8 --g 1.3 --b 0.5
 
     parser = argparse.ArgumentParser(description="Adjust RGB channels")
 
